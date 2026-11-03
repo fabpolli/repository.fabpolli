@@ -91,14 +91,20 @@ def extract_assets(path, root):
 
 
 def write_index(repo_zip):
-    """A page Kodi can browse when the address is added as a file source."""
+    """A page Kodi can browse when the address is added as a file source.
+
+    Kodi caches this listing and then refuses to open any other file of the folder,
+    so it must include the files the repository add-on reads from here.
+    """
     name = os.path.basename(repo_zip)
     shutil.copyfile(repo_zip, os.path.join(ROOT, name))
     for old in os.listdir(ROOT):
         if old.startswith(REPO_ID + '-') and old.endswith('.zip') and old != name:
             os.remove(os.path.join(ROOT, old))
+    links = ''.join('<a href="%s">%s</a><br>\n' % (link, link)
+                    for link in (name, 'addons.xml', 'addons.xml.md5'))
     page = ('<!DOCTYPE html>\n<html>\n<head><meta charset="utf-8"><title>fabpolli Repository</title></head>\n'
-            '<body>\n<a href="%s">%s</a>\n</body>\n</html>\n' % (name, name))
+            '<body>\n%s</body>\n</html>\n' % links)
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8', newline='\n') as handle:
         handle.write(page)
 
