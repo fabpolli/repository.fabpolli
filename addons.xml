@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="repository.fabpolli" name="fabpolli Repository" version="1.0.0" provider-name="fabpolli">
+  <extension point="xbmc.addon.repository" name="fabpolli Repository">
+    <dir>
+      <info compressed="false">https://fabpolli.github.io/repository.fabpolli/addons.xml</info>
+      <checksum>https://fabpolli.github.io/repository.fabpolli/addons.xml.md5</checksum>
+      <datadir zip="true">https://fabpolli.github.io/repository.fabpolli/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="it_IT">Addon di fabpolli</summary>
+    <summary lang="en_GB">Add-ons by fabpolli</summary>
+    <description lang="it_IT">Installa questo repository per accedere agli addon di fabpolli e ricevere i loro aggiornamenti.</description>
+    <description lang="en_GB">Install this repository to access the add-ons by fabpolli and receive their updates.</description>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+    <platform>all</platform>
+    <license>GPL-3.0-only</license>
+    <website>https://github.com/fabpolli/repository.fabpolli</website>
+  </extension>
+</addon>
+<addon id="script.followme" name="FollowMe" version="1.3.4" provider-name="fabpolli">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="it_IT">Trasferisce la riproduzione su un altro Kodi della rete</summary>
+    <summary lang="en_GB">Move playback to another Kodi on the network</summary>
+    <description lang="it_IT">Sposta quello che stai guardando o ascoltando (canale TV, playlist, modalità party, contenuti di addon) su un altro Kodi della rete domestica, accendendo la TV di destinazione e spegnendo quella locale tramite CEC.</description>
+    <description lang="en_GB">Moves what is playing (TV channel, playlist, party mode, add-on content) to another Kodi on the home network, turning the destination TV on and the local TV off via CEC.</description>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <clearlogo>resources/clearlogo.png</clearlogo>
+    </assets>
+    <platform>all</platform>
+    <license>GPL-3.0-only</license>
+  </extension>
+</addon>
+</addons>
